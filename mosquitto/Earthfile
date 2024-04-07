@@ -1,0 +1,17 @@
+VERSION 0.8
+
+build:
+    FROM eclipse-mosquitto:2
+
+    COPY mosquitto.conf /mosquitto/config/mosquitto.conf
+
+    # builtins must be declared
+    ARG EARTHLY_GIT_SHORT_HASH
+
+    ARG REGISTRY=ghcr.io/mortenlj/misc
+    ARG image=${REGISTRY}/mosquitto
+    ARG VERSION=$EARTHLY_GIT_SHORT_HASH
+    SAVE IMAGE --push ${image}:${VERSION} ${image}:latest
+
+docker:
+    BUILD --platform=linux/amd64 --platform=linux/arm64 +build

@@ -1,0 +1,38 @@
+{
+  "Adminer": {
+    "containers": {
+      "adminer": {
+        "image": "adminer",
+        "version": "4-standalone",
+        "launch_order": 1,
+        "ports": {
+          "8080": {
+            "description": "Adminer WebUI port. Suggested default: 8385.",
+            "host_default": 8385,
+            "label": "WebUI port",
+            "protocol": "tcp",
+            "ui": true
+          }
+        },
+        "opts": [
+          ["--env", "ADMINER_DEFAULT_SERVER=localhost"]
+        ],
+        "environment": {
+          "ADMINER_DESIGN": {
+            "description": "Adminer design. Suggested default: pepa-linha-dark.",
+            "label": "Adminer design",
+            "value": "pepa-linha-dark"
+          },
+          "ADMINER_DEFAULT_SERVER": {
+            "description": "Default database server. You should set this to the IP/FQDN of your server.",
+            "label": "Default database server",
+            "value": ""
+          }
+        }
+      }
+    },
+    "description": "<p>Adminer is a full-featured database management tool</p><p>The image bundles all the designs that are available in the source package of adminer. You can find the list of designs on <a href=\"https://github.com/vrana/adminer/tree/master/designs\">GitHub</a>.</p><p>Based on the official docker image: <a href=\"https://hub.docker.com/_/adminer/\" target=\"_blank\">https://hub.docker.com/_/adminer/</a>, available for amd64 and arm64 architecture.</p>",
+    "website": "https://www.adminer.org",
+    "version": "4+0.1"
+  }
+}

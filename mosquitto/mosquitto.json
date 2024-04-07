@@ -1,0 +1,47 @@
+{
+  "mosquitto": {
+    "containers": {
+      "mosquitto": {
+        "image": "ghcr.io/mortenlj/misc/mosquitto",
+        "tag": "latest",
+        "launch_order": 1,
+        "ports": {
+          "1883": {
+            "description": "mosquitto mqtt port, Default: 1883",
+            "host_default": 1883,
+            "label": "mqtt port",
+            "protocol": "tcp"
+          },
+          "1884": {
+            "description": "mosquitto websocket port, Default: 1884",
+            "host_default": 1884,
+            "label": "websocket port",
+            "protocol": "tcp"
+          }
+        },
+        "volumes": {
+          "/mosquitto/data": {
+            "description": "Choose a Share for mosquitto's data. E.g.: create a Share called mosquitto for this purpose alone.",
+            "label": "Data Location"
+          }
+        },
+        "environment": {
+          "UID": {
+            "description": "Enter a valid UID to run mosquitto as. It must have full permissions to all Shares mapped in the previous step.",
+            "label": "UID to run mosquitto as.",
+            "index": 1
+          },
+          "GID": {
+            "description": "Enter a valid GID to use along with the above UID. It(or the above UID) must have full permissions to all Shares mapped in the previous step.",
+            "label": "GID to run mosquitto as.",
+            "index": 2
+          }
+        }
+      }
+    },
+    "description": "TODO",
+    "volume_add_support": false,
+    "website": "https://mosquitto.org/",
+    "version": "2+0.1"
+  }
+}
